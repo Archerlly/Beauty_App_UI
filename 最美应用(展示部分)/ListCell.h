@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ListCell.h
 //  最美应用(展示部分)
 //
 //  Created by 阿城 on 15/11/11.
@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @class dataModel;
-@interface ViewController : UIViewController
-@property (nonatomic, assign) CGRect oringeRect;
-@property (nonatomic, strong) dataModel *mod;
-//@property (nonatomic, assign) NSInteger idx;
-@end
+@interface ListCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+
+@property (nonatomic, strong) dataModel *mod;
+
+@end
