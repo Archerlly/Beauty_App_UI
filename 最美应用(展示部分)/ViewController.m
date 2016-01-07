@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "dataModel.h"
 #import "animationModal.h"
+#import "InteractiveTransition.h"
+
 
 @interface ViewController ()<UIViewControllerTransitioningDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *bgView;
@@ -26,6 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIView *titleView;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 
+@property (nonatomic, strong) InteractiveTransition *interactive;
+
 @end
 
 @implementation ViewController
@@ -35,28 +39,36 @@
     UILabel *lab = _labs[0];
     lab.text = @"已收藏";
 }
+
 - (IBAction)backClick:(id)sender {
-    self.transitioningDelegate = self;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 #pragma mark UIViewControllerTransitioningDelegate
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
     return [animationModal new];
-
 }
 
+-(id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator{
+    return _interactive.activiting ? _interactive : nil;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _interactive = [InteractiveTransition new];
+    _interactive.presentingVc = self;
+    
+    self.transitioningDelegate = self;
+    
     _name.text = _mod.name;
     _bgView.image = [UIImage imageNamed:_mod.imgName];
     [_scroll addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:@"Offset"];
     [self HidenList];
+    self.transitioningDelegate = self;
+
     
-    //添加手势返回
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
-    [self.view addGestureRecognizer:pan];
 }
 
 -(void)pan:(UIPanGestureRecognizer *)sender{

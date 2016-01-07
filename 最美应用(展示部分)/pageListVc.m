@@ -13,10 +13,11 @@
 #import "labList.h"
 #import "sideBar.h"
 
+
 #define kWidth self.view.bounds.size.width
 #define kHeight self.view.bounds.size.height
 
-@interface pageListVc ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface pageListVc ()<UICollectionViewDataSource,UICollectionViewDelegate,UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -27,6 +28,8 @@
 @property (nonatomic ,weak) labList *labView;
 @property (nonatomic ,weak) UIView *cleanView;
 @property (nonatomic ,weak) sideBar *side;
+
+
 
 @end
 
@@ -83,12 +86,14 @@
     side.frame = self.view.bounds;
     [self.view addSubview:side];
     [self.view sendSubviewToBack:side];
-    side.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    side.transform = CGAffineTransformMakeScale(0.3, 0.3);
+    side.hidden = YES;
     _side = side;
     
 }
 
 -(void)edgePan:(UIScreenEdgePanGestureRecognizer *)sender{
+    
     
     //移动page
     CGPoint point = [sender translationInView:nil];
@@ -103,6 +108,10 @@
     NSLog(@"%.2f",scale);
     self.side.transform = CGAffineTransformMakeScale(scale, scale);
     
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        _side.hidden = NO;
+    }
+    
     if (sender.state == UIGestureRecognizerStateEnded) {
         
         CGAffineTransform trans;
@@ -111,22 +120,28 @@
         
         if (self.bgView.frame.origin.x > kWidth * 0.4) {
             trans = CGAffineTransformMakeTranslation(kWidth*0.8, 0);
-            scale = CGAffineTransformMakeScale(1, 1);
+            scale = CGAffineTransformIdentity;
             _cleanView.transform = CGAffineTransformMakeTranslation(30, 0);
             alpha = 0;
             _collection.scrollEnabled = NO;
+
         }else{
             trans = CGAffineTransformIdentity;
             scale = CGAffineTransformMakeScale(0.3, 0.3);
             _cleanView.transform = CGAffineTransformIdentity;
             alpha = 1;
             _collection.scrollEnabled = YES;
+
         }
         
         [UIView animateWithDuration:0.25 animations:^{
             self.bgView.transform = trans;
             self.side.transform = scale;
             _labView.alpha = alpha;
+        } completion:^(BOOL finished) {
+            if (!CGAffineTransformIsIdentity(_side.transform)) {
+                _side.hidden = YES;
+            }
         }];
         
     }
@@ -134,7 +149,10 @@
 }
 
 -(void)selectedLab:(NSNotification *)noti{
-    [self.collection scrollToItemAtIndexPath:noti.object atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+    
+    NSIndexPath *idx = noti.object;
+    [self.collection scrollToItemAtIndexPath:idx atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
+    self.view.backgroundColor = self.colors[idx.item];
 }
 
 #pragma  mark dataSource
@@ -166,6 +184,10 @@
     ViewController *vc = segue.destinationViewController;
     vc.oringeRect = [cell convertRect:cell.img.frame toView:self.view];
     vc.mod = self.dataArr[idx.row];
+    
+    
 }
+
+
 
 @end
