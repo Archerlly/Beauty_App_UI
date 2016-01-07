@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "dataModel.h"
 #import "labList.h"
+#import "sideBar.h"
 
 #define kWidth self.view.bounds.size.width
 #define kHeight self.view.bounds.size.height
@@ -18,9 +19,14 @@
 @interface pageListVc ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collection;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
 
 @property(nonatomic,copy) NSArray *colors;
 @property (nonatomic ,copy) NSArray *dataArr;
+
+@property (nonatomic ,weak) labList *labView;
+@property (nonatomic ,weak) UIView *cleanView;
+@property (nonatomic ,weak) sideBar *side;
 
 @end
 
@@ -58,28 +64,74 @@
     self.view.backgroundColor = self.colors[0];
     labList *labView = [[labList alloc]initWithFrame:CGRectMake(0, kHeight - 60, kWidth, 120)];
     labView.dataArr = self.dataArr;
-    [self.view addSubview:labView];
+    [self.bgView addSubview:labView];
+    _labView = labView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(selectedLab:) name:@"selectLab" object:nil];
     
-//    //边界拖拽盖板
-//    UIView *cleanView = [[UIView alloc]init];
-//    cleanView.frame = CGRectMake(0, 0, 20, kHeight);
-//    [self.view addSubview:cleanView];
-//    
-//    //边界拖拽
-//    UIPanGestureRecognizer *edgePan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(edgePan:)];
-//
-//    [cleanView addGestureRecognizer:edgePan];
+    //边界拖拽盖板
+    UIView *cleanView = [[UIView alloc]init];
+    cleanView.frame = CGRectMake(-30, 0, 60, kHeight*0.75);
+    [self.bgView addSubview:cleanView];
+    _cleanView = cleanView;
+    
+    //边界拖拽
+    UIPanGestureRecognizer *edgePan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(edgePan:)];
+    [cleanView addGestureRecognizer:edgePan];
+    
+    sideBar *side = [[[NSBundle mainBundle]loadNibNamed:@"sideBar" owner:nil options:nil] firstObject];
+    side.frame = self.view.bounds;
+    [self.view addSubview:side];
+    [self.view sendSubviewToBack:side];
+    side.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    _side = side;
+    
 }
 
-//-(void)edgePan:(UIScreenEdgePanGestureRecognizer *)sender{
-//    
-//    CGPoint point = [sender translationInView:nil];
+-(void)edgePan:(UIScreenEdgePanGestureRecognizer *)sender{
+    
+    //移动page
+    CGPoint point = [sender translationInView:nil];
 //    NSLog(@"%@",NSStringFromCGPoint(point));
-//    self.collection.transform = CGAffineTransformMakeTranslation(point.x, 0);
-//    
-//}
+    self.bgView.transform = CGAffineTransformTranslate(self.bgView.transform, point.x, 0);
+    [sender setTranslation:CGPointZero inView:nil];
+    
+    //移动bar
+    CGPoint p = [sender locationInView:nil];
+    CGFloat scale = p.x / (kWidth * 0.5);
+    scale = scale > 1 ? 1 : scale;
+    NSLog(@"%.2f",scale);
+    self.side.transform = CGAffineTransformMakeScale(scale, scale);
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        
+        CGAffineTransform trans;
+        CGAffineTransform scale;
+        CGFloat alpha;
+        
+        if (self.bgView.frame.origin.x > kWidth * 0.4) {
+            trans = CGAffineTransformMakeTranslation(kWidth*0.8, 0);
+            scale = CGAffineTransformMakeScale(1, 1);
+            _cleanView.transform = CGAffineTransformMakeTranslation(30, 0);
+            alpha = 0;
+            _collection.scrollEnabled = NO;
+        }else{
+            trans = CGAffineTransformIdentity;
+            scale = CGAffineTransformMakeScale(0.3, 0.3);
+            _cleanView.transform = CGAffineTransformIdentity;
+            alpha = 1;
+            _collection.scrollEnabled = YES;
+        }
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.bgView.transform = trans;
+            self.side.transform = scale;
+            _labView.alpha = alpha;
+        }];
+        
+    }
+    
+}
 
 -(void)selectedLab:(NSNotification *)noti{
     [self.collection scrollToItemAtIndexPath:noti.object atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="sideBar">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touxiang" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-aM-2DC">
+                    <rect key="frame" x="25" y="40" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="TzZ-Ue-obM"/>
+                        <constraint firstAttribute="width" constant="60" id="gQI-Ls-jC8"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阿城" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-xg-wQW">
+                    <rect key="frame" x="104" y="46" width="40" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微博妹友" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX2-Fm-9B1">
+                    <rect key="frame" x="104" y="73" width="60" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlv-LI-uGm">
+                    <rect key="frame" x="0.0" y="164" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="YWe-cq-uHM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="80" maxY="7"/>
+                    <state key="normal" title="限免推荐" image="sidebar_icon_limitfree_normal"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrN-qt-ggI">
+                    <rect key="frame" x="0.0" y="208" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="QkH-hc-6C0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="80" maxY="7"/>
+                    <state key="normal" title="发现应用" image="sidebar_icon_discover_normal"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEs-E8-zpm">
+                    <rect key="frame" x="0.0" y="252" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="9ir-sO-ofi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="80" maxY="7"/>
+                    <state key="normal" title="文章专栏" image="sidebar_icon_article_normal"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZN-Pa-zP3">
+                    <rect key="frame" x="0.0" y="296" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="vb3-ET-fvV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="80" maxY="7"/>
+                    <state key="normal" title="我的收藏" image="sidebar_icon_fav_normal"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="aAT-24-2uZ">
+                    <rect key="frame" x="0.0" y="340" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="d2Q-ss-RsW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="80" maxY="7"/>
+                    <state key="normal" title="美我一下" image="sidebar_icon_flower_normal"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLR-5E-OPa">
+                    <rect key="frame" x="0.0" y="120" width="146" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="mnm-Ui-JQt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="contentEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="7" maxX="80" maxY="7"/>
+                    <state key="normal" title="每日最美" image="sidebar_icon_days_normal"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="aAT-24-2uZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1qH-fS-abK"/>
+                <constraint firstItem="WX2-Fm-9B1" firstAttribute="centerY" secondItem="x2r-aM-2DC" secondAttribute="centerY" constant="12" id="2lV-CD-edr"/>
+                <constraint firstItem="GrN-qt-ggI" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="9Zv-uK-dN3"/>
+                <constraint firstItem="6ZN-Pa-zP3" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Asv-12-I0Y"/>
+                <constraint firstItem="Rlv-LI-uGm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Bby-BM-EpX"/>
+                <constraint firstItem="aAT-24-2uZ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="FZQ-1H-a0E"/>
+                <constraint firstItem="GrN-qt-ggI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GR1-Ic-OYZ"/>
+                <constraint firstItem="6ZN-Pa-zP3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Isx-Vl-uTl"/>
+                <constraint firstItem="vEs-E8-zpm" firstAttribute="top" secondItem="GrN-qt-ggI" secondAttribute="bottom" id="M3R-Hj-jWp"/>
+                <constraint firstItem="vEs-E8-zpm" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Q5B-c4-2ez"/>
+                <constraint firstItem="SLR-5E-OPa" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="QVH-Z5-zQ6"/>
+                <constraint firstItem="6ZN-Pa-zP3" firstAttribute="top" secondItem="vEs-E8-zpm" secondAttribute="bottom" id="S1N-mW-b6r"/>
+                <constraint firstItem="O6u-xg-wQW" firstAttribute="centerY" secondItem="x2r-aM-2DC" secondAttribute="centerY" constant="-12" id="SDk-JW-fgW"/>
+                <constraint firstItem="GrN-qt-ggI" firstAttribute="top" secondItem="Rlv-LI-uGm" secondAttribute="bottom" id="W0h-Hv-R5h"/>
+                <constraint firstItem="WX2-Fm-9B1" firstAttribute="leading" secondItem="O6u-xg-wQW" secondAttribute="leading" id="Wvf-fX-DzV"/>
+                <constraint firstItem="vEs-E8-zpm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YCu-IU-iFg"/>
+                <constraint firstItem="x2r-aM-2DC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="bOb-6p-vBD"/>
+                <constraint firstItem="Rlv-LI-uGm" firstAttribute="top" secondItem="SLR-5E-OPa" secondAttribute="bottom" id="baG-L1-aQ7"/>
+                <constraint firstItem="SLR-5E-OPa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dd3-do-fgd"/>
+                <constraint firstItem="Rlv-LI-uGm" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fb9-Wj-2fA"/>
+                <constraint firstItem="O6u-xg-wQW" firstAttribute="leading" secondItem="x2r-aM-2DC" secondAttribute="trailing" constant="19" id="hNj-64-Xpf"/>
+                <constraint firstItem="x2r-aM-2DC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="hRF-k2-NN3"/>
+                <constraint firstItem="SLR-5E-OPa" firstAttribute="top" secondItem="x2r-aM-2DC" secondAttribute="bottom" constant="20" id="pGl-5x-VSO"/>
+                <constraint firstItem="aAT-24-2uZ" firstAttribute="top" secondItem="6ZN-Pa-zP3" secondAttribute="bottom" id="z1V-RE-ZPd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="QVH-Z5-zQ6"/>
+                    <exclude reference="fb9-Wj-2fA"/>
+                    <exclude reference="9Zv-uK-dN3"/>
+                    <exclude reference="Q5B-c4-2ez"/>
+                    <exclude reference="Asv-12-I0Y"/>
+                    <exclude reference="FZQ-1H-a0E"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="icon" destination="x2r-aM-2DC" id="0QE-Xy-Ul5"/>
+            </connections>
+            <point key="canvasLocation" x="99" y="157"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="sidebar_icon_article_normal" width="52" height="52"/>
+        <image name="sidebar_icon_days_normal" width="52" height="52"/>
+        <image name="sidebar_icon_discover_normal" width="52" height="52"/>
+        <image name="sidebar_icon_fav_normal" width="52" height="52"/>
+        <image name="sidebar_icon_flower_normal" width="52" height="52"/>
+        <image name="sidebar_icon_limitfree_normal" width="52" height="52"/>
+        <image name="touxiang" width="804" height="700"/>
+    </resources>
+</document>

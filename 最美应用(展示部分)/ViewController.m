@@ -43,7 +43,9 @@
 
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
     return [animationModal new];
+
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,13 +55,19 @@
     [self HidenList];
     
     //添加手势返回
-    UISwipeGestureRecognizer *swip = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipe:)];
-    swip.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swip];
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(pan:)];
+    [self.view addGestureRecognizer:pan];
 }
 
--(void)swipe:(UISwipeGestureRecognizer *)sender{
-    [self backClick:nil];
+-(void)pan:(UIPanGestureRecognizer *)sender{
+    
+    CGPoint point = [sender translationInView:nil];
+    self.view.transform = CGAffineTransformTranslate(self.view.transform, point.x, 0);
+    [sender setTranslation:CGPointZero inView:nil];
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [self backClick:nil];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{

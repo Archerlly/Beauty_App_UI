@@ -10,6 +10,8 @@
 		822D81151BF462CD006E3515 /* labList.m in Sources */ = {isa = PBXBuildFile; fileRef = 822D81141BF462CD006E3515 /* labList.m */; };
 		826C11511BF60B3B00EFE372 /* labCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 826C11501BF60B3B00EFE372 /* labCell.m */; };
 		82C5F3CF1BF36CFC00D10F72 /* dataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C5F3CE1BF36CFC00D10F72 /* dataModel.m */; };
+		82CA78941BF77957002987C8 /* sideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CA78931BF77957002987C8 /* sideBar.m */; };
+		82CA78961BF77976002987C8 /* sideBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82CA78951BF77976002987C8 /* sideBar.xib */; };
 		82E88C7E1BF2F42000372F2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E88C7D1BF2F42000372F2A /* main.m */; };
 		82E88C811BF2F42000372F2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E88C801BF2F42000372F2A /* AppDelegate.m */; };
 		82E88C841BF2F42000372F2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82E88C831BF2F42000372F2A /* ViewController.m */; };
@@ -29,6 +31,9 @@
 		826C11501BF60B3B00EFE372 /* labCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = labCell.m; sourceTree = "<group>"; };
 		82C5F3CD1BF36CFC00D10F72 /* dataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataModel.h; sourceTree = "<group>"; };
 		82C5F3CE1BF36CFC00D10F72 /* dataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dataModel.m; sourceTree = "<group>"; };
+		82CA78921BF77957002987C8 /* sideBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sideBar.h; sourceTree = "<group>"; };
+		82CA78931BF77957002987C8 /* sideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sideBar.m; sourceTree = "<group>"; };
+		82CA78951BF77976002987C8 /* sideBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sideBar.xib; sourceTree = "<group>"; };
 		82E88C791BF2F42000372F2A /* 最美应用(展示部分).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "最美应用(展示部分).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82E88C7D1BF2F42000372F2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		82E88C7F1BF2F42000372F2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,10 +71,6 @@
 				82E88C971BF3200000372F2A /* pageListVc.m */,
 				82E88C991BF331CE00372F2A /* ListCell.h */,
 				82E88C9A1BF331CE00372F2A /* ListCell.m */,
-				822D81131BF462CD006E3515 /* labList.h */,
-				822D81141BF462CD006E3515 /* labList.m */,
-				826C114F1BF60B3B00EFE372 /* labCell.h */,
-				826C11501BF60B3B00EFE372 /* labCell.m */,
 			);
 			name = page;
 			sourceTree = "<group>";
@@ -81,6 +82,27 @@
 				82C5F3CE1BF36CFC00D10F72 /* dataModel.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		82CA78901BF778E8002987C8 /* labList */ = {
+			isa = PBXGroup;
+			children = (
+				822D81131BF462CD006E3515 /* labList.h */,
+				822D81141BF462CD006E3515 /* labList.m */,
+				826C114F1BF60B3B00EFE372 /* labCell.h */,
+				826C11501BF60B3B00EFE372 /* labCell.m */,
+			);
+			name = labList;
+			sourceTree = "<group>";
+		};
+		82CA78911BF77921002987C8 /* sideBar */ = {
+			isa = PBXGroup;
+			children = (
+				82CA78921BF77957002987C8 /* sideBar.h */,
+				82CA78931BF77957002987C8 /* sideBar.m */,
+				82CA78951BF77976002987C8 /* sideBar.xib */,
+			);
+			name = sideBar;
 			sourceTree = "<group>";
 		};
 		82E88C701BF2F42000372F2A = {
@@ -105,6 +127,8 @@
 				82E88C7F1BF2F42000372F2A /* AppDelegate.h */,
 				82E88C801BF2F42000372F2A /* AppDelegate.m */,
 				822D81111BF46274006E3515 /* page */,
+				82CA78901BF778E8002987C8 /* labList */,
+				82CA78911BF77921002987C8 /* sideBar */,
 				822D81121BF46284006E3515 /* model */,
 				82E88C821BF2F42000372F2A /* ViewController.h */,
 				82E88C831BF2F42000372F2A /* ViewController.m */,
@@ -189,6 +213,7 @@
 				82E88C8C1BF2F42000372F2A /* LaunchScreen.storyboard in Resources */,
 				82E88C891BF2F42000372F2A /* Assets.xcassets in Resources */,
 				82F3D93E1BF373D80078D39C /* dataList.plist in Resources */,
+				82CA78961BF77976002987C8 /* sideBar.xib in Resources */,
 				82E88C871BF2F42000372F2A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,6 +229,7 @@
 				82E88C981BF3200000372F2A /* pageListVc.m in Sources */,
 				826C11511BF60B3B00EFE372 /* labCell.m in Sources */,
 				82E88C811BF2F42000372F2A /* AppDelegate.m in Sources */,
+				82CA78941BF77957002987C8 /* sideBar.m in Sources */,
 				82C5F3CF1BF36CFC00D10F72 /* dataModel.m in Sources */,
 				82E88C9B1BF331CE00372F2A /* ListCell.m in Sources */,
 				82E88C7E1BF2F42000372F2A /* main.m in Sources */,
@@ -321,6 +347,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "最美应用(展示部分)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = acheng.beauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,6 +359,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "最美应用(展示部分)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = acheng.beauty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
